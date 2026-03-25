@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Flask Auth Lab{% endblock %}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            margin: 0;
+            color: #1f2933;
+        }
+        .page {
+            max-width: 420px;
+            margin: 48px auto;
+            background: white;
+            border-radius: 14px;
+            box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+            padding: 28px;
+        }
+        h1, h2 {
+            margin-top: 0;
+        }
+        input {
+            width: 100%;
+            padding: 10px 12px;
+            margin: 8px 0 14px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+        button, .button-link {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            border: 0;
+            border-radius: 8px;
+            padding: 10px 16px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .message {
+            background: #e0f2fe;
+            color: #075985;
+            padding: 10px 12px;
+            border-radius: 8px;
+            margin-bottom: 14px;
+        }
+        .muted {
+            color: #52606d;
+        }
+        .actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 18px;
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="message">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

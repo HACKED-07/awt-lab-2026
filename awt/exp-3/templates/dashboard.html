@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+    <h2>Welcome, {{ username }}</h2>
+    <p class="muted">This is the protected page for the Flask lab experiment.</p>
+    <p>Total registered users: <strong>{{ total_users }}</strong></p>
+
+    <div class="actions">
+        <a class="button-link" href="{{ url_for('logout') }}">Logout</a>
+    </div>
+{% endblock %}
